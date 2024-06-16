@@ -1,0 +1,42 @@
+site_name: YiriMirai OneBot Documents
+repo_name: YiriMiraiProject/YiriMiraiOneBot
+repo_url: https://github.com/YiriMiraiProject/YiriMiraiOneBot
+site_url: https://docs.yiri-mirai.online/
+copyright: 版权所有 &copy; 2024 YiriMiraiProject 项目组成员和其他贡献者
+
+theme:
+  name: material
+  font: false
+  features:
+    - search.suggest
+    - search.highlight
+
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.path
+    - navigation.footer
+
+    - content.code.copy
+    - content.code.select
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - footnotes
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
