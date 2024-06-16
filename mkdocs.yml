@@ -23,6 +23,8 @@ theme:
     - content.code.copy
     - content.code.select
 
+    # - toc.integrate
+
 plugins:
   - search
 
@@ -40,3 +42,9 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+
+nav:
+  - 欢迎: index.md
+  - 快速上手: getting-started.md
+  - 基础:
+      - 关于 Bot 对象: basic/about-bot-object.md
