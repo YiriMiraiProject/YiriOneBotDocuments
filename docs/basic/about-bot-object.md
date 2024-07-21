@@ -11,21 +11,18 @@ Bot 对象表示一个**机器人实例**，你通过这个对象来和**OneBot�
 
 Bot 对象接受的参数如下，其中必填项用**粗体**标识：
 
-| 参数         | 作用                                                         |
-| ------------ | ------------------------------------------------------------ |
-| **adapter**  | 适配器，用于和**OneBot实现**通信。<br />常用的有`ReverseWebsocketAdapter`和`HTTPAdapter`。*目前我们仅实现了 `ReverseWebsocketAdapter`*。 |
-| bus          | 一个事件总线，不填自动生成。<br />一般用于将多个 Bot 对象挂载到同一事件总线，这样它们的事件将在同一总线上传播。 |
-| bot_platform | 一个字符串。**机器人平台**。用于筛选发给自身的事件，不填自动接收并处理所有 OneBot 实现上挂载的机器人的事件。 |
-| bot_user_id  | 一个字符串。**机器人用户 ID**。用于筛选发给自身的事件，不填自动接收并处理所有 OneBot 实现上挂载的机器人的事件。 |
+| 参数        | 作用                                                         |
+| ----------- | ------------------------------------------------------------ |
+| **adapter** | 适配器，用于和**OneBot实现**通信。<br />常用的有`ReverseWebsocketAdapter`和`HTTPAdapter`。*目前我们仅实现了 `ReverseWebsocketAdapter`*。 |
+| **self_id** | 机器人的Id，定义取决于你使用的OneBot实现。                   |
 
 ```python
+bus = EventBus()
 bot = Bot(
     adapter=ReverseWebsocketAdapter(
-        access_token='test',
-        host='0.0.0.0',
-        port=8120,
-        timeout=10
-    )
+        host="127.0.0.1", port=8080, access_token="helloworld", bus=bus
+    ),
+    self_id=3442852292,
 )
 ```
 
@@ -36,7 +33,7 @@ bot = Bot(
 `bot.call` 接收两个参数，`request` 参数用于构造一个**OneBot 请求**；`response_type` 用于指定返回值的类型，Bot 对象会根据 `response_type` 解析**OneBot 响应**。
 
 !!!note
-	得益于 `typing` 库的帮助，`await bot.call(...)` 的返回类型会被 IDE 自动推断为 `response_type`，因此你可以直接获得 IDE 提供的代码补全和 mypy 等工具的类型检查！
-	![示例](https://xycode-blog-cdn-1302614822.cos.ap-hongkong.myqcloud.com/hexo/20240617010859.png)
+	得益于 `typing` 库的帮助，`await bot.call(...)` 的返回类型会被 IDE 自动推断 ，因此你可以直接获得 IDE 提供的代码补全和 mypy 等工具提供的类型检查。
+	![](./images/Snipaste_2024-07-21_16-01-43.png)
 
-除此之外，我们在后续版本中也会提供一些常用API的简化版本。
+除此之外，我们在后续版本中也会提供更多常用API的简化版本。

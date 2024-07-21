@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "yirimiraionebotdocuments"
+name = "yirionebotdocuments"
 version = "0.0.1"
-description = "YiriMiraiOne文档"
+description = "YiriOne文档"
 authors = ["XYCode Kerman <xycode-xyc@outlook.com>"]
 license = "CC-BY-SA 4.0"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = ">=3.10,<3.14"
 mkdocs = "^1.6.0"
 mkdocs-material = "^9.5.26"
 
